@@ -2,13 +2,13 @@
   "expo": {
     "name": "Khie Wallet",
     "slug": "khie-wallet",
-    "version": "0.8.2",
+    "version": "0.8.3",
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
     "icon": "./assets/icon.png",
     "android": {
       "package": "com.hanssen0.khiemobile",
-      "versionCode": 14,
+      "versionCode": 15,
       "icon": "./assets/icon.png",
       "intentFilters": [
         {
