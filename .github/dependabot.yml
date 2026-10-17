@@ -14,6 +14,14 @@ updates:
     # Expo SDK owns this tested native dependency set. Upgrade it only as part
     # of an Expo SDK migration, not through independent Dependabot updates.
     ignore:
+      # Keep Expo modules on the installed SDK major; patch/minor updates remain enabled.
+      - dependency-name: expo
+        update-types: [version-update:semver-major]
+      - dependency-name: "expo-*"
+        update-types: [version-update:semver-major]
+      # A new WebRTC major also needs libp2p support and a port of our native patch.
+      - dependency-name: react-native-webrtc
+        update-types: [version-update:semver-major]
       - dependency-name: react
       - dependency-name: react-native
       - dependency-name: react-native-reanimated
