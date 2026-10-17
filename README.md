@@ -107,11 +107,12 @@ This is a development MVP, not a production wallet. It has not received a securi
 
 ## Dependency updates
 
-Expo and its native modules must stay on one SDK major. Dependabot can propose
-patch/minor updates, but Expo major updates are coordinated migrations: update
-Expo, its modules, React Native and the SDK-owned native dependencies together,
-then run the checks above and regenerate and build Android. Do not silence Expo
-Doctor to accept an incompatible native package.
+Expo and its native modules must stay on one SDK major. Expo major-update PRs
+remain enabled in Dependabot as upgrade reminders. Before merging them, perform
+a coordinated SDK migration: update Expo, its modules, React Native and the
+SDK-owned native dependencies together, then run the checks above and regenerate
+and build Android. The dependency regression tests still reject mixed SDK majors.
+Do not silence Expo Doctor to accept an incompatible native package.
 
 `react-native-webrtc` remains on 124.0.8 because the released libp2p adapters
 currently require `^124.0.6`. Its Android data-channel ordering patch is required
