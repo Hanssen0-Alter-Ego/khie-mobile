@@ -104,24 +104,3 @@ The Trust/NKey bridge is adapted from the MIT-licensed [`cryptape/trust-android`
 ## Limitations and risk
 
 This is a development MVP, not a production wallet. It has not received a security audit, release hardening or Play Store review. Testnet is the default. Mainnet use and asset risk are the user's responsibility. Real-device acceptance still requires testing both QR directions, relay-only operation and an observed `direct === true` WebRTC connection against the current CCC Connector page.
-
-## Dependency updates
-
-Expo and its native modules must stay on one SDK major. Expo major-update PRs
-remain enabled in Dependabot as upgrade reminders. Before merging them, perform
-a coordinated SDK migration: update Expo, its modules, React Native and the
-SDK-owned native dependencies together, then run the checks above and regenerate
-and build Android. The dependency regression tests still reject mixed SDK majors.
-Do not silence Expo Doctor to accept an incompatible native package.
-
-`react-native-webrtc` remains on 124.0.8 because the released libp2p adapters
-currently require `^124.0.6`. Its Android data-channel ordering patch is required
-for peers that send their first message immediately. A WebRTC upgrade must retain
-or port that patch, use an adapter supporting the new version, and resolve one
-native WebRTC installation. The dependency regression tests check SDK majors,
-app/libp2p WebRTC resolution, and the installed native observer order.
-
-After native dependency changes, also test a cold launch, both QR scanner flows,
-clipboard, secure storage/biometric unlock, notifications, and immediate-send
-WebRTC pairing on an Android device using test data. Unit tests and a Metro
-bundle do not replace these device checks.
